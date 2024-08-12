@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  jupyter:
+    command: /home/glue_user/jupyter/jupyter_start.sh
+    environment:
+      - DISABLE_SSL=true
+      - DATALAKE_FORMATS=delta
+      - AWS_PROFILE=default
+      # - AWS_ACCESS_KEY_ID=
+      # - AWS_SECRET_ACCESS_KEY=
+      - AWS_REGION=us-east-1
+    image: amazon/aws-glue-libs:glue_libs_4.0.0_image_01
+    ports:
+      - '4040:4040'
+      - '18080:18080'
+      - '8998:8998'
+      - '8888:8888'
+    restart: always
+    volumes:
+      - /home/joblan/.aws:/home/glue_user/.aws
+      - /home/joblan/DataKnow/5.Implementación de servicios serverless con AWS:/home/glue_user/workspace/jupyter_workspace
+      

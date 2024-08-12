@@ -1,0 +1,1 @@
+aws apigateway test-invoke-method --region us-east-1 --rest-api-id xqzu4t13va --resource-id eg8n1g --http-method GET --path-with-query-string '/items'
